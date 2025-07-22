@@ -12,6 +12,8 @@ FetchContent_Declare(SFML
     SYSTEM)
 FetchContent_MakeAvailable(SFML)
 
-add_executable(GravitySimulator main.cpp)
-target_compile_features(GravitySimulator PRIVATE cxx_std_17)
-target_link_libraries(GravitySimulator PRIVATE SFML::Graphics)
+add_executable(${PROJECT_NAME}
+                src/events.cpp
+                src/main.cpp)
+target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_17)
+target_link_libraries(${PROJECT_NAME} PRIVATE SFML::Graphics)
