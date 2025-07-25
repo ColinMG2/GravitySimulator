@@ -33,6 +33,16 @@ struct Particle {
         return position - position_last;
     }
 
+    sf::Vector2f setVelocity(sf::Vector2f v, float dt) {
+        position_last = position - (v * dt);
+        return position_last;
+    }
+
+    sf::Vector2f addVelocity(sf::Vector2f v, float dt) {
+        position_last -= v * dt;
+        return position_last;
+    }
+
     void addForce(const sf::Vector2f& force) {
         acceleration += force / mass; // F = ma
     }
