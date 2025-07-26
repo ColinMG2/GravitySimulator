@@ -1,6 +1,4 @@
-#ifndef RENDERER_HPP
-#define RENDERER_HPP
-
+#pragma once
 #include <string>
 #include <SFML/Graphics.hpp>
 #include "solver.hpp"
@@ -13,14 +11,11 @@ public:
         target.clear(sf::Color::White);
         
         sf::Vector3f boundary = solver.getBoundary();
-        sf::Vector2f boundary_center = {boundary.x, boundary.y};
-        float boundary_radius = boundary.z;
-
-        sf::CircleShape bound;
-        bound.setRadius(boundary_radius);
-        bound.setPosition(boundary_center - sf::Vector2f(boundary_radius, boundary_radius));
+        sf::CircleShape bound{boundary.z};
+        bound.setOrigin({boundary.z, boundary.z});
+        bound.setPosition({boundary.x, boundary.y});
         bound.setFillColor(sf::Color::Black);
-        bound.setPointCount(64);
+        bound.setPointCount(128);
         target.draw(bound);
 
         sf::CircleShape circle;
@@ -40,5 +35,3 @@ public:
 private:
     sf::RenderTarget& target;
 };
-
-#endif

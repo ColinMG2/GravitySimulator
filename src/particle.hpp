@@ -1,6 +1,4 @@
-#ifndef PARTICLE_HPP
-#define PARTICLE_HPP
-
+#pragma once
 #include <SFML/Graphics.hpp>
 
 struct Particle {
@@ -49,5 +47,3 @@ struct Particle {
 
 
 };
-
-#endif
